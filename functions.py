@@ -59,7 +59,6 @@ encoder = joblib.load("encoder.pkl")
 import fitz
 import docx2txt
 import string
-import textract
 from docx import Document
 import subprocess
 # In[12]:
@@ -92,10 +91,14 @@ def extract_file(resume):
 
     elif fn.endswith(".doc"):
         try:
-            return textract.process(fn).decode("utf-8")
-        except Exception as e:
+            text = subprocess.check_output(['antiword',fn])
+            return text.decode('utf-8')
+        except subprocess.CalleddProcessError as e:
             return f"error reading the file {e}"
+        except FileNotFoundError:
+            return "antiword is not installed on the server. Please install it to process .doc files."
 
+        
     else:
         return "Unsupported file format. Please upload a PDF, DOCX, or DOC file."
 
@@ -115,6 +118,7 @@ def predict_roles(model,vectorizer,text,top_n=5):
 
 
 # In[ ]:
+
 
 
 
