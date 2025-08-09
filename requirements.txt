@@ -7,4 +7,5 @@ PyMuPDF
 joblib
 textract
 python-docx
-gunicorn==21.2.0
+
+gunicorn
