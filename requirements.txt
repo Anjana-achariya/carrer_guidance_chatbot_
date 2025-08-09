@@ -3,9 +3,11 @@ joblib
 Werkzeug
 scikit-learn
 nltk
+docx2txt
 PyMuPDF
 antiword
 python-docx
 gunicorn
+
 
 
