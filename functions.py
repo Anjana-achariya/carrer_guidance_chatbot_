@@ -64,7 +64,7 @@ import subprocess
 # In[12]:
 
 def extract_file(resume):
-if hasattr(resume, "filename"):
+    if hasattr(resume, "filename"):
         fn = resume.filename.lower()
         file_path = os.path.join("/tmp", fn)
         resume.save(file_path)  # Save uploaded file
@@ -122,6 +122,7 @@ def predict_roles(model,vectorizer,text,top_n=5):
 
 
 # In[ ]:
+
 
 
 
