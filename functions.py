@@ -65,7 +65,7 @@ import subprocess
 
 
 def extract_file(resume):
-    fn = resume.name.lower()
+    fn = resume.filename.lower()
     with open(fn , "wb") as f:
         f.write(resume.read())
 
@@ -118,6 +118,7 @@ def predict_roles(model,vectorizer,text,top_n=5):
 
 
 # In[ ]:
+
 
 
 
