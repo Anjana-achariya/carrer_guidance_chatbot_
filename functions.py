@@ -61,7 +61,7 @@ import docx2txt
 import string
 import textract
 from docx import Document
-
+import subprocess
 # In[12]:
 
 
@@ -100,6 +100,7 @@ def extract_file(resume):
         return "Unsupported file format. Please upload a PDF, DOCX, or DOC file."
 
 
+
 # In[13]:
 
 
@@ -114,6 +115,7 @@ def predict_roles(model,vectorizer,text,top_n=5):
 
 
 # In[ ]:
+
 
 
 
