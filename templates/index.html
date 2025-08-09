@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Career Role Predictor</title>
+</head>
+<body>
+    <h1>Upload Your Resume</h1>
+    <form method="POST" action="/predict" enctype="multipart/form-data">
+        <input type="file" name="resume" required>
+        <button type="submit">Predict Job Roles</button>
+    </form>
+
+    {% if roles %}
+        <h2>Top Predicted Roles:</h2>
+        <ul>
+        {% for role, score in roles.items() %}
+            <li>{{ role }} - {{ '%.2f'|format(score*100) }}%</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

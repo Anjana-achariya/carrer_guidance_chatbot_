@@ -1,0 +1,10 @@
+flask
+joblib
+Werkzeug
+scikit-learn
+nltk
+PyMuPDF
+joblib
+textract
+python-docx
+gunicorn==21.2.0
