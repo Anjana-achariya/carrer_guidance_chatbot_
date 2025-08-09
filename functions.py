@@ -63,11 +63,15 @@ from docx import Document
 import subprocess
 # In[12]:
 
-
 def extract_file(resume):
-    fn = resume.filename.lower()
-    with open(fn , "wb") as f:
-        f.write(resume.read())
+if hasattr(resume, "filename"):
+        fn = resume.filename.lower()
+        file_path = os.path.join("/tmp", fn)
+        resume.save(file_path)  # Save uploaded file
+    else:
+        # Assume it's already a file path string
+        file_path = resume
+        fn = file_path.lower()
 
     if fn.endswith(".pdf"):
         try:
@@ -118,6 +122,7 @@ def predict_roles(model,vectorizer,text,top_n=5):
 
 
 # In[ ]:
+
 
 
 
