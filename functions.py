@@ -111,7 +111,7 @@ def extract_file(resume):
 # In[13]:
 
 
-def predict_roles(model,vectorizer,text,top_n=5):
+def predict_roles(model,vectorizer,encoder,text,top_n=5):
   vec = vect.transform([text])
   probs = model.predict_proba(vec)[0]
   classes = model.classes_
@@ -126,6 +126,7 @@ def predict_roles(model,vectorizer,text,top_n=5):
 
 
 # In[ ]:
+
 
 
 
