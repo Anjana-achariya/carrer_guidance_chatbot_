@@ -118,10 +118,15 @@ def predict_roles(model,vectorizer,text,top_n=5):
   top_indices = probs.argsort()[-top_n:][::-1]
   top_classes = classes[top_indices]
   top_probs = probs[top_indices]
-  return dict(zip(top_classes,top_probs))
+  decoded_roles = {
+        encoder.inverse_transform([int(role)])[0]: prob
+        for role, prob in zip(top_classes, top_probs)
+    }
+  return decoded_roles
 
 
 # In[ ]:
+
 
 
 
